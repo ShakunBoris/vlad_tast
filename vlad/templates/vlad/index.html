@@ -53,6 +53,10 @@
                 document.body.append(table);
             })
         }
+        document.getElementById('delete').onclick = () => {
+            const toRemove = document.getElementById('tempTable');
+            if (toRemove) toRemove.remove();
+        }
     })
 </script>
 </head>
@@ -60,6 +64,7 @@
     <!-- <p id="text"> text </p> -->
     <button id="parse"> parse </button>
     <button id="show"> show </button>
+    <button id="delete"> delete </button>
     <!-- <ul>
     {% for i in cur %}
         <li> {{ i.cur }} : {{ i.value}}</li>
