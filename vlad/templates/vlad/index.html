@@ -37,6 +37,7 @@
                     table.append(tableRaw);
                 }
                 document.body.append(table);
+                document.body.insertBefore(table, document.getElementById('t2'));
             })
         }
         document.getElementById('delete').onclick = () => {
@@ -50,4 +51,18 @@
     <button id="parse"> parse </button>
     <button id="show"> show </button>
     <button id="delete"> delete </button>
+    <table id='t2' >
+        {% for i in tb %}
+        <tr>
+            {% for j in i %}
+                <td style="border-style: solid; border-width: 1px;" >{{j.cur}}</td>
+            {% endfor %}
+        </tr>
+        <tr>
+            {% for k in i %}
+                <td style="border-style: solid; border-width: 1px;" >{{k.value}}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
 </body>
