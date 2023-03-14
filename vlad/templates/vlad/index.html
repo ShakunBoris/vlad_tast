@@ -4,18 +4,8 @@
     document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('parse').onclick = () => {
             fetch('https://api.coingecko.com/api/v3/global')
-            // Put response into json form
             .then(response => {console.log(response); return response.json();})
-            .then(data => {
-            // Log data to the console
-            // console.log('__data:__', data);
-            // console.log('__data.data.market_cap_percentage:__', data.data.market_cap_percentage);
-            // console.log('__ JSON.stringify:__', JSON.stringify(data.data.market_cap_percentage));
-            // console.log('btc', data.data.market_cap_percentage.btc);
-            <!-- console.log(JSON.stringify(data.data.market_cap_percentage)); -->
-            // document.getElementById('text').innerHTML = 'btc: ' + data.data.market_cap_percentage.btc;
-            return data.data.market_cap_percentage;
-            })
+            .then(data => {return data.data.market_cap_percentage;})
             .then(cur => {
                 console.log(JSON.stringify(cur));
                 fetch('/save',{
@@ -44,10 +34,6 @@
                     const tableData2 = document.createElement('td');
                     tableData2.innerHTML=data[i].value;
                     tableRaw.append(tableData2);
-                    // console.log(i)
-                    // const show = document.createElement('p');
-                    // show.innerHTML=data[i].cur + ' : ' + data[i].value; 
-                    // document.body.append(show);
                     table.append(tableRaw);
                 }
                 document.body.append(table);
@@ -61,13 +47,7 @@
 </script>
 </head>
 <body>
-    <!-- <p id="text"> text </p> -->
     <button id="parse"> parse </button>
     <button id="show"> show </button>
     <button id="delete"> delete </button>
-    <!-- <ul>
-    {% for i in cur %}
-        <li> {{ i.cur }} : {{ i.value}}</li>
-    {% endfor %}
-    </ul> -->
 </body>

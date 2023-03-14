@@ -16,9 +16,7 @@ def index(request):
 def save(request):
     if request.method == "POST":
         Currency.objects.all().delete()
-        # print(json.loads(request.body))
         for k, v in json.loads(request.body).items():
-            # print(k, v)
             x = Currency(cur=k, value=v)
             x.save()
     return JsonResponse({'status': 'works'})
@@ -26,8 +24,5 @@ def save(request):
 @csrf_exempt
 def show(request):
     if request.method == 'GET':
-        # print(list(Currency.objects.all().values('cur', 'value')))
         cur = list(Currency.objects.all().values('cur', 'value'))
-        # cur = serializers.serialize('json', Currency.objects.all().values('cur', 'value'))
-        # print(cur)
         return JsonResponse(cur, safe=False)
