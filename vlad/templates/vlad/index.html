@@ -43,8 +43,8 @@
                 for(var i=0; i<data.length; i++) {
                     const tableData1 = document.createElement('td');
                     const tableData2 = document.createElement('td');
-                    tableData1.setAttribute("style","border:1px; border-style:dotted; border-color:red;");
-                    tableData2.setAttribute("style","border:1px; border-style:dotted; border-color:green;");
+                    tableData1.setAttribute("style","border:1px; border-style:dotted; border-width: 1px; border-color:red;");
+                    tableData2.setAttribute("style","border:1px; border-style:dotted; border-width: 1px; border-color:green;");
                     tableData1.innerHTML=data[i].cur;
                     row1.append(tableData1);
                     tableData2.innerHTML=data[i].value;
