@@ -38,6 +38,16 @@
                 }
                 document.body.append(table);
                 document.body.insertBefore(table, document.getElementById('t2'));
+                var row2 = table.insertRow(0);
+                var row1 = table.insertRow(0);
+                for(var i=0; i<data.length; i++) {
+                    const tableData1 = document.createElement('td');
+                    const tableData2 = document.createElement('td');
+                    tableData1.innerHTML=data[i].cur;
+                    row1.append(tableData1);
+                    tableData2.innerHTML=data[i].value;
+                    row2.append(tableData2);
+                }
             })
         }
         document.getElementById('delete').onclick = () => {
